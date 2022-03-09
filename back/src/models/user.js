@@ -95,3 +95,12 @@ module.exports = (sequelize) => {
 
     })
 }
+/* {
+  nickname: 'luciano.stani97',
+  name: 'luciano.stani97@live.com',
+  picture: 'https://s.gravatar.com/avatar/337cfe7c9cf6492ff87a41e58c1497c4?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Flu.png',
+  updated_at: '2022-03-08T21:14:51.355Z',
+  email: 'luciano.stani97@live.com',
+  email_verified: false,
+  sub: 'auth0|6227c6049dc20b006892ff1d'
+} */

@@ -16,14 +16,16 @@ server.use(
   })
 );
 
-server.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
-})
 
-server.get('/profile', requiresAuth(), (req, res) => {
-  console.log(req.oidc.user);
-  res.send(JSON.stringify(req.oidc.user))
-})
+server.use('/', router)
+// server.get('/', (req, res) => {
+//   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+// })
+
+// server.get('/profile', requiresAuth(), (req, res) => {
+//   console.log(req.oidc.isAuthenticated());
+//   res.send(JSON.stringify(req.oidc.user))
+// })
 
 const port = process.env.PORT || 3001;
 
