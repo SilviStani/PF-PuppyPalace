@@ -11,9 +11,11 @@ const Clinics = require ('./Clinics.js');
 const Users = require ('./Users.js');
 
 
+
 const router = Router();
 
 router.use('/user', Users);
 router.use ('/clinics', Clinics);
+
 
 module.exports = router;
