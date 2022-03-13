@@ -95,9 +95,12 @@ export function filterCity(payload){
   }
 }
 
-export function getPets(){
+export function getPets(token){
   return async function(dispatch){
-   const pets = await axios.get("http://localhost:3001/user/pets")
+   const pets = await axios.get("http://localhost:3001/user/pets",  {
+    headers: {
+      'Authorization':  `Bearer ${token}`
+    }})
    return dispatch({
      type: "GET_PETS",
      payload: pets.data,
@@ -119,4 +122,18 @@ export function ReserveSubmit (payload){
   }
 }
 
+export function getProfile (token) {
+  return async function (dispatch){
+    const profile = await axios.get('http://localhost:3001/user/profile',  {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }})
+      console.log(profile.data)
+      return dispatch({
+        type: "GET_PROFILE",
+        payload: profile.data
+      })
+    }
+    
+}
 

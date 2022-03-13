@@ -5,10 +5,13 @@ const isAuth = (req, res, next)=> {
    
    
     if (!authorization) throw new Error ('No estás loggeado');
-// Le quito el bearer y me quedo con el token
-    const token = authorization.split(' ')[1];
-// nos aseguramos de que es un tken legítimo
-    const {userId} = verify(token, process.env.ACCESS_TOKEN_SECRET);
+// // Le quito el bearer y me quedo con el token
+     const token = authorization.split(' ')[1];
+// // nos aseguramos de que es un tken legítimo
+      const {userId} = verify(token, process.env.ACCESS_TOKEN_SECRET);
+// if(!authorization){
+//     res.send({error: 'No estás loggeado'})
+// } 
     
     //return  userId;
     next()

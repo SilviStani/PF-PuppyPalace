@@ -7,9 +7,9 @@ export default function LostPets() {
   const dispatch = useDispatch();
   const allPets = useSelector((state) => state.pets);
   const lost = allPets.filter((e)=> e.status === "Lost")
-  
+  const token =useSelector(state => state.token);
   useEffect(() => {
-    dispatch(getPets());
+    dispatch(getPets(token));
   }, [dispatch]);
 
   return (

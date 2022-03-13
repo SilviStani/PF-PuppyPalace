@@ -1,11 +1,10 @@
-
 const initialState = {
   clinics: [],
   allClinics: [],
   detail: [],
   pets: [],
   token: '',
-
+  user: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -58,15 +57,18 @@ function rootReducer(state = initialState, action) {
         return{
           ...state,
           pets: action.payload,
-        };
+        };  
       case "LOGIN_ANSWER":
         return{
+            ...state,
+            token: action.payload.accessToken
+  
+          };
+      case "GET_PROFILE":
+        return{
           ...state,
-          token: action.payload.accessToken
-
-        }
-
-      
+          user: action.payload
+        };
 
     default:
       return state;
