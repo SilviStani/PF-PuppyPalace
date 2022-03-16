@@ -10,7 +10,7 @@ const admindGetProfile = async (req, res, next) => {
 }
 
 const admindGetProfileId = async (req, res, next) => {
-    const userId = isAuthUser(req);
+    const userId = req.params.id
 
     const user = await User.findByPk(userId, {
         include:[{model: Pet}, {model: Reserve}] 
