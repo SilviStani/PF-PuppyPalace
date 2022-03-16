@@ -2,13 +2,23 @@ const {User, Pet, Vaccine, Reserve} = require ('../db.js');
 const {isAuthUser} = require('../Utils/isAuth.js');
 
 const admindGetProfile = async (req, res, next) => {
-    //const user = isAuthUser(req);
 
     const user = await User.findAll( {
         include:[{model: Pet}, {model: Reserve}] 
     });
     res.json(user);
 }
+
+const admindGetProfileId = async (req, res, next) => {
+    const userId = isAuthUser(req);
+
+    const user = await User.findByPk(userId, {
+        include:[{model: Pet}, {model: Reserve}] 
+    });
+    res.json(user);
+}
+
+
 
 //---------------------------------------------PUT----------------------------------------------------
 
@@ -63,6 +73,7 @@ const adminKillUser = async (req, res) => {
 
 
 module.exports = {
+    admindGetProfileId,
     admindGetProfile,
     admindModProfile,
     adminKillUser,

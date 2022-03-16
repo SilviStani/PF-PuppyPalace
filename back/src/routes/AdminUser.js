@@ -1,10 +1,10 @@
 const { Router } = require ('express');
-const { admindModProfile , adminKillUser, admindGetProfile } = require("../controllers/UserAdmins.js");
+const { admindModProfile , adminKillUser, admindGetProfile, admindGetProfileId } = require("../controllers/UserAdmins.js");
 
 const router = Router();
 
 router.get('/', admindGetProfile)
-router.get('/:id', /* RUTA ID */)
+router.get('/:id', admindGetProfileId)
 router.put('/:id', admindModProfile);
 router.delete('/:id', adminKillUser);
 
